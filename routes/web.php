@@ -19,3 +19,7 @@ Route::get('/', function () {
 
 
 Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
