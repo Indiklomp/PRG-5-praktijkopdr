@@ -36,7 +36,8 @@
                 </div>
             @endif
                 <div>
-                    <H1><strong>BarbellClub</strong></H1>
+                    <H1><strong>Welcome to barbell club</strong></H1>
+                    <H2>Log in now and start your journey!</H2>
                 </div>
         </div>
     </body>
