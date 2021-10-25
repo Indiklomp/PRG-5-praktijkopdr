@@ -25,7 +25,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                        <a href="{{ url('/schemas') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
@@ -37,7 +37,7 @@
             @endif
                 <div>
                     <H1><strong>Welcome to barbell club</strong></H1>
-                    <H2>Log in now and start your journey!</H2>
+                    <H2>find the workout routine that fits you!</H2>
                 </div>
         </div>
     </body>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\SchemaController;
+use App\Models\Schema;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+ // Route::get('/about', [\App\Http\Controllers\AboutController::class, 'schemasposts']);
 
-Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index']);
+ Auth::routes();
 
-Auth::routes();
+ Route::get('/schemas', [App\Http\Controllers\SchemaController::class, 'schemasposts'])->name('schemas');
 
-Route::get('/schemas', [App\Http\Controllers\SchemaController::class, 'index'])->name('schemas');
 
+Route::get('schemas/{schema}', function ($slug) {
+
+    $schema = Schema::find($slug);
+
+    return view('schema', [
+        'schema' => $schema
+    ]);
+
+ })->where('post','[A-z_/-]+');
