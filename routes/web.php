@@ -25,7 +25,12 @@ Route::get('/', function () {
 
  Route::resource('/schemas', App\Http\Controllers\SchemaController::class);
 
- //Route::get('/schemas', [App\Http\Controllers\SchemaController::class, 'show'])->name('show');
+ // Route::get('/schemas', [App\Http\Controllers\SchemaController::class, 'show'])->name('show');
+
+Route::resource('schemas', SchemaController::class);
+
+
+
 
 
 // Route::get('/schemas',function () {
