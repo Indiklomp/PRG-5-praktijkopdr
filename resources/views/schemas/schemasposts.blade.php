@@ -8,27 +8,18 @@
     <title>Title</title>
 </head>
 <body>
-<h1><a href="/schemas/my-first-schema">My first Schema </a> </h1>
-
-<p>
-    dit is de beschrijving van het schema en hieronder komt een image van het schema
-</p>
-
-<h1><a href="/schemas/my-second-schema">My second Schema </a> </h1>
-
-<p>
-    dit is de beschrijving van het schema en hieronder komt een image van het schema
-</p>
-
-<h1><a href="/schemas/my-third-schema">My third Schema </a> </h1>
-
-<p>
-    dit is de beschrijving van het schema en hieronder komt een image van het schema
-</p>
-
-
-
-
+ <?php foreach ($schemas as $schema) : ?>
+    <article class="{{ $loop->even ? 'foobar':'' }}">
+        <h1>
+            <a href="/posts/{{$schema->slug}}">
+            {{$schema->title}}
+            </a>>
+        </h1>
+        <div>
+            {{$schema->excerpt}}
+        </div>
+    </article>
+<?php endforeach ;?>
 </body>
 </html>
 @endsection

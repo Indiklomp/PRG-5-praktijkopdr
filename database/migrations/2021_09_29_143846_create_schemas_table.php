@@ -17,8 +17,10 @@ class CreateSchemasTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('category_id');
-            $table->string('name');
+            $table->string('title');
+            $table->text('excerpt');
             $table->string('image');
+            $table->string('tag');
         });
     }
 

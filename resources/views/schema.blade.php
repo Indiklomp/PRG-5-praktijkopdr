@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-   <p>
-        <?= $schema; ?>
-    </p>
+    <article>
+        <h1>{{ $schema->title }}</h1>
+
+        <div>
+            {!! $post->body !!}
+        </div>
+    </article>
 
     <a href="/schemas">Go Back</a>
 

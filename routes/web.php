@@ -23,15 +23,22 @@ Route::get('/', function () {
 
  Auth::routes();
 
- Route::get('/schemas', [App\Http\Controllers\SchemaController::class, 'schemasposts'])->name('schemas');
+ Route::resource('/schemas', App\Http\Controllers\SchemaController::class);
+
+ //Route::get('/schemas', [App\Http\Controllers\SchemaController::class, 'show'])->name('show');
 
 
-Route::get('schemas/{schema}', function ($slug) {
-
-    $schema = Schema::find($slug);
-
-    return view('schema', [
-        'schema' => $schema
-    ]);
-
- })->where('post','[A-z_/-]+');
+// Route::get('/schemas',function () {
+//     $schemas = Schema::all();
+//     return view('schemas', [
+//         'schemas' => $schemas
+//     ]);
+//});
+//
+//
+//Route::get('schemas/{schema}', function ($slug) {
+//    $schema = Schema::find($slug);
+//    return view('schema', [
+//        'schema' => $schema
+//    ]);
+// })->where('post','[A-z_/-]+');
