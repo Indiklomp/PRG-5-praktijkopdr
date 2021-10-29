@@ -23,8 +23,10 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
+//        $this->registerPolicies();
 
-        //
+//        Gate::define('tasks_create'. fn(User $user) => $user->is_admin);
+//        Gate::define('tasks_edit'. fn(User $user) => $user->is_admin);
+//        Gate::define('tasks_destroy'. fn(User $user) => $user->is_admin);
     }
 }

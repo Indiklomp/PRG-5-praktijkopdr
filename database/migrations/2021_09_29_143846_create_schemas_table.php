@@ -16,11 +16,11 @@ class CreateSchemasTable extends Migration
         Schema::create('schemas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->nullable();
             $table->string('title');
             $table->text('excerpt');
             $table->string('image');
-            $table->string('tag');
+            $table->string('tag')->nullable();
         });
     }
 
@@ -34,3 +34,4 @@ class CreateSchemasTable extends Migration
         Schema::dropIfExists('schemas');
     }
 }
+

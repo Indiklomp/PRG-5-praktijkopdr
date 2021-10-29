@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\SchemaController;
 use App\Models\Schema;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +22,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
- // Route::get('/about', [\App\Http\Controllers\AboutController::class, 'schemasposts']);
+Auth::routes();
 
- Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
- Route::resource('/schemas', App\Http\Controllers\SchemaController::class);
+Route::resource('/schemas', App\Http\Controllers\SchemaController::class);
 
- // Route::get('/schemas', [App\Http\Controllers\SchemaController::class, 'show'])->name('show');
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('products', ProductController::class);
+});
 
-Route::resource('schemas', SchemaController::class);
-
-
+//Route::group(['middleware' => 'auth'], function(){
+//   Route::resource('task',
+//   \App\Http\Controllers\TaskController::class);
+//});
 
 
 
@@ -39,7 +47,9 @@ Route::resource('schemas', SchemaController::class);
 //         'schemas' => $schemas
 //     ]);
 //});
-//
+
+
+
 //
 //Route::get('schemas/{schema}', function ($slug) {
 //    $schema = Schema::find($slug);
